@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: utf-8
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: 127.0.0.1
+  username: postgres
+  password:
+
+development:
+  <<: *default
+  database: vue_weather_development
+
+test:
+  <<: *default
+  database: vue_weather_test
+
+production:
+  <<: *default
+  database: vue_weather_production
+  username: vue_weather
+  password: <%= ENV['DATABASE_PASSWORD'] %>
