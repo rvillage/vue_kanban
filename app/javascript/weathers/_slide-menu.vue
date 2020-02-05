@@ -1,5 +1,5 @@
 <template>
-  <aside :class="{ 'side-menu__container': true, 'side-menu__container-active': showMenu }" @click="onClick">
+  <aside :class="{ 'side-menu__container': true, 'side-menu__container-active': showMenu }" @click="$emit('click')">
     <nav :class="{ 'slide-menu': true, 'slide-menu-active': showMenu }" @click.self.prevent >
       <section class="menu-header">
         <span class="greeting__text">Welcome Back</span>
@@ -25,11 +25,6 @@
   export default {
     props: {
       showMenu: { type: Boolean, required: true }
-    },
-    methods: {
-      onClick (event) {
-        this.$emit('click', event)
-      }
     }
   }
 </script>
