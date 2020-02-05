@@ -36,3 +36,8 @@ pidfile ENV.fetch("PIDFILE") { "tmp/pids/server.pid" }
 
 # Allow puma to be restarted by `rails restart` command.
 plugin :tmp_restart
+
+# Puma with webpack-dev-server
+if ENV["RAILS_ENV"] == "development"
+  Process.fork { Process.exec "./bin/webpack-dev-server" }
+end

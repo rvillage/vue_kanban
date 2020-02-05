@@ -1,3 +1,4 @@
 Rails.application.routes.draw do
-  resource :hello, only: [:show]
+  root "weathers#index"
+  resources :weathers, only: [:index]
 end
