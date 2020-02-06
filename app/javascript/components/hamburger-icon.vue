@@ -32,4 +32,10 @@
       }
     }
   }
+
+  @media screen and (max-width: 959px) {
+    .hamburger__icon {
+      margin-right: 0;
+    }
+  }
 </style>

@@ -1,18 +1,17 @@
 <template>
   <body class="body">
-    <SlideMenu :showMenu="showMenu" @click="toggleMenu" />
-    <div class="root__container">
+    <SlideMenu :showMenu="showMenu" :darkMode="darkMode" @click="toggleMenu" />
+
+    <main :class="{ 'root__container': true, 'root__container-dark': darkMode }">
       <Header :darkMode="darkMode" @click="toggleMenu" @change="modeToggleSwitch" />
 
-      <main class="main__container">
-        <div :class="{ 'main-container__bg': true, 'main-container__bg-dark': darkMode }" />
-        <WeatherCard :darkMode="darkMode" />
-      </main>
-
-      <footer class="main__footer">
-        <small :class="{ 'copyright__text': true, 'copyright__text-dark': darkMode }">Copyright © VueWeather</small>
-      </footer>
-    </div>
+      <div :class="{ 'main-container__bg': true, 'main-container__bg-dark': darkMode }">
+        <div class="main__container">
+          <WeatherCard :darkMode="darkMode" />
+          <AddCard :darkMode="darkMode" />
+        </div>
+      </div>
+    </main>
   </body>
 </template>
 
@@ -20,12 +19,14 @@
   import SlideMenu from './_slide-menu.vue'
   import Header from './_header.vue'
   import WeatherCard from './_weather-card.vue'
+  import AddCard from './_add-card.vue'
 
   export default {
     components: {
       SlideMenu,
       Header,
-      WeatherCard
+      WeatherCard,
+      AddCard
     },
     data: () => ({
       showMenu: false,
@@ -44,29 +45,39 @@
 
 <style lang="scss" scoped>
   .root__container {
-    width: 100vw;
-    height: 100vh;
-    display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: 0.5fr auto;
-    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+    transition: background 300ms linear;
+    background-image: linear-gradient(to top, #5ee7df 0%, #66a6ff 100%);
+
+    &-dark {
+      background: linear-gradient(to bottom, #372865, #000000);
+    }
   }
 
   .main-container__bg {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -2;
-    opacity: 0;
-    background: white;
-    transition: opacity 300ms linear;
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     &-dark {
       opacity: 1;
       background: linear-gradient(to bottom, #B290FF, #2E1D65);
       transition: opacity 300ms linear;
+    }
+
+    .main__container {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
+      min-height: 90vh;
+      position: relative;
     }
   }
 

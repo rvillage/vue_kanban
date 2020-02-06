@@ -29,4 +29,10 @@
       fill: #ffff;
     }
   }
+
+  @media screen and (max-width: 959px) {
+    .logo__icon {
+      margin: 0 auto;
+    }
+  }
 </style>
