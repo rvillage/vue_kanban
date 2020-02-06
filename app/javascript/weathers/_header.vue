@@ -1,16 +1,16 @@
 <template>
-  <header :class="{ 'main__header': true, 'main__header-dark': darkModeActive }">
+  <header :class="{ 'main__header': true, 'main__header-dark': darkMode }">
     <div class="left__section">
-      <HamburgerIcon :darkModeActive="darkModeActive" @click="$emit('click')" />
-      <Logo :darkModeActive="darkModeActive" />
+      <HamburgerIcon :darkMode="darkMode" @click="$emit('click')" />
+      <Logo :darkMode="darkMode" />
     </div>
     <h3 class="date__text">Today</h3>
     <div class="mode-toggle__container">
       <span class="mode-toggle__text">Light</span>
       <label class="toggle-button__container">
         <input type="checkbox" class="mode-toggle__input" @change="$emit('change')" />
-        <span :class="{ 'mode-toggle__bg': true, 'mode-toggle__bg-checked': darkModeActive }" />
-        <span :class="{ 'mode-toggle__circle': true, 'mode-toggle__circle-checked': darkModeActive }" />
+        <span :class="{ 'mode-toggle__bg': true, 'mode-toggle__bg-checked': darkMode }" />
+        <span :class="{ 'mode-toggle__circle': true, 'mode-toggle__circle-checked': darkMode }" />
       </label>
       <span class="mode-toggle__text">Dark</span>
     </div>
@@ -27,7 +27,7 @@
       Logo
     },
     props: {
-      darkModeActive: { type: Boolean, required: true }
+      darkMode: { type: Boolean, required: true }
     }
   }
 </script>

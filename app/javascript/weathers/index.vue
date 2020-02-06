@@ -2,14 +2,15 @@
   <body class="body">
     <SlideMenu :showMenu="showMenu" @click="toggleMenu" />
     <div class="root__container">
-      <Header :darkModeActive="darkModeActive" @click="toggleMenu" @change="modeToggleSwitch" />
+      <Header :darkMode="darkMode" @click="toggleMenu" @change="modeToggleSwitch" />
 
       <main class="main__container">
-        <div :class="{ 'main-container__bg': true, 'main-container__bg-dark': darkModeActive }" />
+        <div :class="{ 'main-container__bg': true, 'main-container__bg-dark': darkMode }" />
+        <WeatherCard :darkMode="darkMode" />
       </main>
 
       <footer class="main__footer">
-        <small :class="{ 'copyright__text': true, 'copyright__text-dark': darkModeActive }">Copyright © VueWeather</small>
+        <small :class="{ 'copyright__text': true, 'copyright__text-dark': darkMode }">Copyright © VueWeather</small>
       </footer>
     </div>
   </body>
@@ -18,22 +19,24 @@
 <script>
   import SlideMenu from './_slide-menu.vue'
   import Header from './_header.vue'
+  import WeatherCard from './_weather-card.vue'
 
   export default {
     components: {
       SlideMenu,
-      Header
+      Header,
+      WeatherCard
     },
     data: () => ({
       showMenu: false,
-      darkModeActive: false
+      darkMode: false
     }),
     methods: {
       toggleMenu () {
         this.showMenu = !this.showMenu
       },
       modeToggleSwitch () {
-        this.darkModeActive = !this.darkModeActive
+        this.darkMode = !this.darkMode
       }
     }
   }
