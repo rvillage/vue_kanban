@@ -1,3 +1,4 @@
 Rails.application.routes.draw do
-  resource :hello, only: [:show]
+  root "kanbans#index"
+  resources :kanbans, only: [:index]
 end

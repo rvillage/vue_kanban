@@ -1,9 +1,9 @@
 import Vue from 'vue'
-import Hello from '../hello.vue'
+import App from '../kanbans/index.vue'
 
 document.addEventListener('DOMContentLoaded', () => {
   const app = new Vue({
-    el: '#hello',
-    render: h => h(Hello)
+    el: '#app',
+    render: h => h(App)
   })
 })

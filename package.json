@@ -1,5 +1,5 @@
 {
-  "name": "vue_weather",
+  "name": "vue_kanban",
   "private": true,
   "dependencies": {
     "@rails/activestorage": "^6.0.0",

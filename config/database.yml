@@ -8,14 +8,14 @@ default: &default
 
 development:
   <<: *default
-  database: vue_weather_development
+  database: vue_kanban_development
 
 test:
   <<: *default
-  database: vue_weather_test
+  database: vue_kanban_test
 
 production:
   <<: *default
-  database: vue_weather_production
-  username: vue_weather
+  database: vue_kanban_production
+  username: vue_kanban
   password: <%= ENV['DATABASE_PASSWORD'] %>

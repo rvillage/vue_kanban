@@ -6,7 +6,11 @@ gem "rails", "~> 6.0.2"
 gem "bootsnap", require: false
 gem "pg"
 gem "puma"
+gem "sass-rails"
 gem "webpacker"
+
+# customs
+gem "slim-rails"
 
 group :development, :test do
   gem "byebug"
