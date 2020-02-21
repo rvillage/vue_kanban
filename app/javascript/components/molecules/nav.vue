@@ -1,14 +1,10 @@
-<template>
-  <nav class="board-navigation">
-    <div class="title">
-      <h1>VueKanban</h1>
-    </div>
-    <div class="actions">
-      <Button type="text" @click="$emit('logout')">
-        ログオフ
-      </Button>
-    </div>
-  </nav>
+<template lang="pug">
+  nav(class="board-navigation")
+    div(class="title")
+      h1 VueKanban
+    div(class="actions")
+      Button(type="text" @click="$emit('logout')")
+        | ログオフ
 </template>
 
 <script>

@@ -1,13 +1,10 @@
-<template>
-  <Body>
-    <div class="board-view">
-      <Nav />
-      <p v-if="progress" class="progress">
-        {{ message }}
-      </p>
-      <!-- <KbnBoardTask :lists="lists" /> -->
-    </div>
-  </Body>
+<template lang="pug">
+  Body
+    div(class="board-view")
+      Nav
+      p(v-if="progress" class="progress")
+        | {{ message }}
+      //- KbnBoardTask(:lists="lists")
 </template>
 
 <script>

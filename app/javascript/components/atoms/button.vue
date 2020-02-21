@@ -1,7 +1,6 @@
-<template>
-  <button :class="classes" :disabled="disabled" type="button" @click="$emit('click')">
-    <slot />
-  </button>
+<template lang="pug">
+  button(:class="classes" :disabled="disabled" type="button" @click="$emit('click')")
+    slot
 </template>
 
 <script>

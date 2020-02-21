@@ -1,7 +1,6 @@
-<template>
-  <body class="body">
-    <slot />
-  </body>
+<template lang="pug">
+  body(class="body")
+    slot
 </template>
 
 <script>
