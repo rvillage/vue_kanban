@@ -13,19 +13,19 @@
     computed: {
       classes () {
         const cls = this.type === 'text' ? ('-' + this.type) : ''
-        return [`button${cls}`]
+        return [`m-button${cls}`]
       }
     }
   }
 </script>
 
 <style lang="scss" scoped>
-  .button {
+  .m-button {
     padding: .6em 1.3em;
-  }
-  .button-text {
-    border: none;
-    padding-right: 0;
-    padding-left: 0;
+    &-text {
+      border: none;
+      padding-right: 0;
+      padding-left: 0;
+    }
   }
 </style>

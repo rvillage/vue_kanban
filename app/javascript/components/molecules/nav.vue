@@ -1,14 +1,14 @@
 <template lang="pug">
-  nav(class="board-navigation")
-    div(class="title")
+  nav(class="m-nav")
+    div(class="m-nav-title")
       h1 VueKanban
-    div(class="actions")
+    div(class="m-nav-actions")
       Button(type="text" @click="$emit('logout')")
         | ログオフ
 </template>
 
 <script>
-  import Button from '@components/atoms/button.vue'
+  import Button from '@components/atoms/button'
 
   export default {
     name: 'Nav',
@@ -19,23 +19,23 @@
 </script>
 
 <style lang="scss" scoped>
-  .board-navigation {
+  .m-nav {
     display: flex;
     border-bottom: medium solid black;
-  }
-  .title {
-    flex: 1;
-  }
-  h1 {
-    margin: 0px;
-  }
-  .actions {
-    width: 64px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  button {
-    cursor: pointer;
+    &-title {
+      flex: 1;
+      h1 {
+        margin: 0px;
+      }
+    }
+    &-actions {
+      width: 64px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      button {
+        cursor: pointer;
+      }
+    }
   }
 </style>

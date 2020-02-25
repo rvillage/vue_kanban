@@ -1,16 +1,16 @@
 <template lang="pug">
-  body(class="body")
+  body(class="t-single-page")
     slot
 </template>
 
 <script>
   export default {
-    name: 'Body'
+    name: 'SinglePage'
   }
 </script>
 
 <style lang="scss" scoped>
-  .body {
+  .t-single-page {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
