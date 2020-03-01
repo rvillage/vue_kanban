@@ -7,7 +7,7 @@
         Button(type="text" @click="shown = true")
           Icon(name="add")
     ul(class="o-card-list-items")
-      draggable(v-model="draggableItems" :options="{ group: 'items' }" @change="handleChange" @end="handleEnd")
+      draggable(v-model="draggableItems" group="items" @change="handleChange" @end="handleEnd")
         li(v-for="item in draggableItems" :key="item.id" class="o-card-list-items-item")
           Card(v-bind="item" @remove="handleRemove")
     Form(v-if="shown" :listId="id" @close="shown = false")
@@ -41,27 +41,22 @@
     computed: {
       draggableItems: {
         get () { return this.items },
-        set (value) {
-          // NOTE: 本来なら、Vue.Draggrableから処理されたデータをitemsに反映すれば可能だが、
-          //       フロントエンドとバックエンドの状態を整合とるために、ここでは何もしない。
-        }
+        set (value) { return } // Nothing to do
       },
     },
     methods: {
-      ...mapActions('board', ['removeTask']),
-      handleChange ({ added, removed }) {
-        if (added) {
-          cosole.log('moveToCard')
-          return
+      ...mapActions('board', ['removeTask', 'moveTask', 'moveFromList', 'moveToList', 'performTaskMoving']),
+      handleChange ({ added, removed, moved }) {
+        if (moved) {
+          this.moveTask({ id: moved.element.id, listId: this.id })
+        } else if (added) {
+          this.moveToList({ id: added.element.id, listId: this.id })
         } else if (removed) {
-          cosole.log('moveCardFrom')
-          return
+          this.moveFromList({ id: removed.element.id, listId: this.id })
         }
       },
-      handleEnd () {
-        if (this.canMove) {
-          console.log('performCardMoving')
-        }
+      handleEnd (event) {
+        this.performTaskMoving({ beforeSortOrder: event.oldIndex, afterSortOrder: event.newIndex })
       },
       handleRemove ({ id, listId }) {
         this.removeTask({ id, listId })
