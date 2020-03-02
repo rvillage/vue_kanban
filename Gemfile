@@ -9,6 +9,9 @@ gem "puma"
 gem "sass-rails"
 gem "webpacker"
 
+# Customs
+gem "slim-rails"
+
 group :development, :test do
   gem "byebug"
 end
