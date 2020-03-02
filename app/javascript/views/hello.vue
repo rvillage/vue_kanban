@@ -4,17 +4,18 @@
     App
 </template>
 
-<script>
-  import App from './app.vue'
+<script lang="ts">
+  import Vue from 'vue'
+  import App from '@views/app.vue'
 
-  export default {
+  export default Vue.extend({
     components: { App },
     data: () => {
       return {
         message: 'Can you say hello?'
       }
     }
-  }
+  })
 </script>
 
 <style lang="scss" scoped>
