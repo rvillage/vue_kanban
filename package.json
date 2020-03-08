@@ -16,6 +16,7 @@
   },
   "version": "0.1.0",
   "devDependencies": {
+    "@storybook/cli": "^5.3.14",
     "webpack-dev-server": "^3.10.1"
   }
 }
