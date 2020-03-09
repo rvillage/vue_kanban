@@ -1,0 +1,28 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks'
+import { action } from '@storybook/addon-actions'
+import Card from './card.vue'
+
+<Meta title="molecules/Card" component={ Card } />
+
+# Card
+
+- カード表示
+
+<Story name="default">
+  {{
+    components: {
+      Card
+    },
+    template: `<Card v-bind="item" @remove="action" />`,
+    data: () => ({
+      item: {
+        id: 1,
+        listId: 1,
+        name: 'タスク'
+      }
+    }),
+    methods: {
+      action: action('remove')
+    }
+  }}
+</Story>

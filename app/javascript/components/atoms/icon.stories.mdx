@@ -1,0 +1,31 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks'
+import { action } from '@storybook/addon-actions'
+import Icon from './icon.vue'
+
+<Meta title="atoms/Icon" component={ Icon } />
+
+# Icon
+
+- アイコン表示
+
+<Story name="add icon">
+  {{
+    components: {
+      Icon
+    },
+    template: `
+      <Icon name="add" />
+    `
+  }}
+</Story>
+
+<Story name="close icon">
+  {{
+    components: {
+      Icon
+    },
+    template: `
+      <Icon name="close" />
+    `
+  }}
+</Story>

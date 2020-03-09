@@ -1,0 +1,25 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks'
+import { action } from '@storybook/addon-actions'
+import Button from './button.vue'
+
+<Meta title="atoms/Button" component={ Button } />
+
+# Button
+
+- ボタン表示
+
+<Story name="default">
+  {{
+    components: {
+      Button
+    },
+    template: `
+      <Button @click="action">
+        Hello Button
+      </Button>
+    `,
+    methods: {
+      action: action('clicked')
+    }
+  }}
+</Story>
