@@ -9,7 +9,15 @@ module.exports = {
   ],
   webpackFinal: async (config, { configType }) => {
     config.module.rules.push({
-      test: /\.s(c|a)ss$/,
+      test: /\.scss$/,
+      use: [
+        'vue-style-loader',
+        'css-loader',
+        'sass-loader',
+      ],
+    });
+    config.module.rules.push({
+      test: /\.sass$/,
       use: [
         'vue-style-loader',
         'css-loader',
