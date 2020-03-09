@@ -6,7 +6,7 @@
 
 <script lang="ts">
   import Vue from 'vue'
-  import App from '@views/app.vue'
+  import App from './app.vue'
 
   export default Vue.extend({
     components: { App },
