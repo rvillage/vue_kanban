@@ -4,12 +4,13 @@
 </template>
 
 <script lang="ts">
-  import Vue from 'vue'
+  import { defineComponent, ref } from '@vue/composition-api'
 
-  export default Vue.extend({
-    data: function () {
+  export default defineComponent({
+    setup () {
+      const message = ref('Hello Vue!')
       return {
-        message: 'Hello Vue!'
+        message
       }
     }
   })

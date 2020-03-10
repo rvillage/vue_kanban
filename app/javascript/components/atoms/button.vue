@@ -4,18 +4,21 @@
 </template>
 
 <script lang="ts">
-  import Vue from 'vue'
+  import { defineComponent, computed } from '@vue/composition-api'
 
-  export default Vue.extend({
+  export default defineComponent({
     name: 'Button',
     props: {
       type: { type: String, default: 'button' },
       disabled: { type: Boolean, default: false }
     },
-    computed: {
-      classes (): string[] {
-        const cls = this.type === 'text' ? ('-' + this.type) : ''
+    setup (props) {
+      const classes = computed((): string[] => {
+        const cls = props.type === 'text' ? ('-' + props.type) : ''
         return [`m-button${cls}`]
+      })
+      return {
+        classes
       }
     }
   })

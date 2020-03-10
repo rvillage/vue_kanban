@@ -5,14 +5,15 @@
 </template>
 
 <script lang="ts">
-  import Vue from 'vue'
+  import { defineComponent, ref } from '@vue/composition-api'
   import App from './app.vue'
 
-  export default Vue.extend({
+  export default defineComponent({
     components: { App },
-    data: () => {
+    setup () {
+      const message = ref('Can you say hello?')
       return {
-        message: 'Can you say hello?'
+        message
       }
     }
   })

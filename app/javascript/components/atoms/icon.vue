@@ -4,19 +4,19 @@
 </template>
 
 <script lang="ts">
-  import Vue from 'vue'
+  import { defineComponent, computed } from '@vue/composition-api'
 
-  export default Vue.extend({
+  export default defineComponent({
     name: 'Icon',
     props: {
       name: { type: String, required: true }
     },
-    computed: {
-      classes (): string[] {
-        return ['a-icon', this.name]
-      },
-      icon (): string {
-        const name: string = this.name
+    setup (props) {
+      const classes = computed((): string[] => {
+        return ['a-icon', props.name]
+      })
+      const icon = computed((): string => {
+        const name = props.name
         if (name === 'close' || name === 'remove') {
           return 'x'
         } else if (name === 'add') {
@@ -24,6 +24,10 @@
         } else {
           return ''
         }
+      })
+      return {
+        classes,
+        icon
       }
     }
   })

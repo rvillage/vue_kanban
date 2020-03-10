@@ -8,11 +8,11 @@
 </template>
 
 <script lang="ts">
-  import Vue from 'vue'
+  import { defineComponent, computed } from '@vue/composition-api'
   import Button from '@components/atoms/button.vue'
   import Icon from '@components/atoms/icon.vue'
 
-  export default Vue.extend({
+  export default defineComponent({
     name: 'Card',
     components: {
       Button,
@@ -23,7 +23,8 @@
       name: { type: String, required: true },
       description: { type: String, default: '' },
       listId: { type: Number, required: true }
-    }
+    },
+    setup (props) {}
   })
 </script>
 
